@@ -18,7 +18,7 @@ const PlayAnimation = () => {
 		soundRef.current.play();
 	}
 
-	// Play sound on mount and navigate to /browse after the animation completes.
+	/** Plays sound on mount and navigates to /browse after the animation completes. */
 	useEffect(() => {
 		handleTadum();
 		setTimeout(() => {
