@@ -3,15 +3,22 @@ import { useEffect, useRef } from "react";
 import { useHistory } from "react-router-dom";
 import { TADUM_SOUND_URL } from "../../requests";
 
+/**
+ * PlayAnimation - Splash screen component that plays the startup sound
+ * and redirects to the browse page after 4.2 seconds.
+ */
 const PlayAnimation = () => {
 
 	let history = useHistory();
 	const soundRef = useRef(null);
+
+	/** Resets and plays the startup sound effect. */
 	const handleTadum = () => {
 		soundRef.current.currentTime = 0;
 		soundRef.current.play();
 	}
 
+	// Play sound on mount and navigate to /browse after the animation completes.
 	useEffect(() => {
 		handleTadum();
 		setTimeout(() => {
