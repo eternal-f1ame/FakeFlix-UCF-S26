@@ -1,14 +1,26 @@
+/**
+ * @file SplashAnimation.jsx
+ * @description Renders an animated Netflix-style letter intro with brush and
+ * lighting effects, plays the startup sound, and redirects to the browse view.
+ */
+
 import "./splashAnimation.scss"
 import { useEffect, useRef } from "react";
 import { useHistory } from "react-router-dom";
 import { TADUM_SOUND_URL } from "../../requests";
 import { motion } from "framer-motion";
 
+/**
+ * SplashAnimation - Animated splash screen component that displays a
+ * cinematic letter intro with fade-in/out transitions, plays the startup
+ * sound after a brief delay, and redirects to /browse after 5.7 seconds.
+ */
 const SplashAnimation = () => {
 
 	let history = useHistory();
 	const soundRef = useRef(null);
 
+	/** Creates a new Audio instance and plays the startup sound, handling autoplay rejection. */
 	const soundNotification = () => {
 		const sound = new Audio(TADUM_SOUND_URL);
 		const promise = sound.play();
@@ -18,6 +30,7 @@ const SplashAnimation = () => {
 		}
 	}
 
+	/** Triggers the sound after 200ms and navigates to /browse after the animation completes. */
 	useEffect(() => {
 		setTimeout(() => {
 			soundNotification();
