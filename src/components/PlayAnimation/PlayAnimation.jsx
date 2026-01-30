@@ -1,3 +1,9 @@
+/**
+ * @file PlayAnimation.jsx
+ * @description Renders the FakeFlix splash screen with an accompanying
+ * startup sound before redirecting the user to the main browse view.
+ */
+
 import "./playAnimation.scss"
 import { useEffect, useRef } from "react";
 import { useHistory } from "react-router-dom";
